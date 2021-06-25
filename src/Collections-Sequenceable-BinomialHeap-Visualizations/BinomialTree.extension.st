@@ -33,7 +33,7 @@ BinomialTree >> asRecursiveSlotsInGroup: aGroup knownReferencesSet: aSet [
 		with: shapes
 		do: [ :aBinomialTree :shape | shape model: aBinomialTree ].
 	eb shapes: shapes.
-	RSHorizontalTreeLayout
+	RSHorizontalGaussianJitterVanDerPloegTreeLayout
 		on: shapes
 		edges: (eb connectToAll: [ :aBinomialTree | 
 				 aBinomialTree children asLinkedList ]).
