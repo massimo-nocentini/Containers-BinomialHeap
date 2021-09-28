@@ -5,7 +5,7 @@ Class {
 		'content',
 		'children'
 	],
-	#category : #'Collections-Sequenceable-BinomialHeap'
+	#category : #'Containers-BinomialHeap'
 }
 
 { #category : #creating }

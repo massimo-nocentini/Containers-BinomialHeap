@@ -1,6 +1,6 @@
 Extension { #name : #Collection }
 
-{ #category : #'*Collections-Sequenceable-BinomialHeap' }
+{ #category : #'*Containers-BinomialHeap' }
 Collection >> asBinomialHeap [
 
 	^ self asBinaryTree: BinomialHeap

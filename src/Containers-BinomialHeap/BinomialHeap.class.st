@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'representation'
 	],
-	#category : #'Collections-Sequenceable-BinomialHeap'
+	#category : #'Containers-BinomialHeap'
 }
 
 { #category : #requirements }
