@@ -9,14 +9,10 @@ Class {
 
 { #category : #requirements }
 BinomialHeap class >> empty [
-	^ self trees: nil
-]
 
-{ #category : #creating }
-BinomialHeap class >> trees: trees [
 	^ self new
-		representation: trees;
-		yourself
+		  representation: nil;
+		  yourself
 ]
 
 { #category : #adding }
@@ -88,28 +84,27 @@ BinomialHeap >> min: trees [
 
 { #category : #adding }
 BinomialHeap >> pop [
-	^ self
-		ifEmpty: [ CollectionIsEmpty signal ]
-		ifNotEmpty: [ :trees | 
-			| tuple tree mergedTrees |
-			tuple := self min: trees.
-			tree := tuple first.
-			mergedTrees := self
-				merge:
-					((tree key - 1 to: 0 by: -1) asValueLink
-						with: tree value children
-						collect: #->) reversed
-				with: tuple second.
-			self class trees: mergedTrees ]
+
+	^ self ifEmpty: [ CollectionIsEmpty signal ] ifNotEmpty: [ :trees | 
+		  | tuple tree min |
+		  tuple := self min: trees.
+		  tree := tuple first.
+		  min := tree value content.
+		  representation := self
+			                    merge:
+				                    ((tree key - 1 to: 0 by: -1) asValueLink
+					                     with: tree value children
+					                     collect: #->) reversed
+			                    with: tuple second.
+		  min ]
 ]
 
 { #category : #adding }
 BinomialHeap >> push: x [
-	| trees |
-	trees := self
-		pushTree: 0 -> (BinomialTree leaf: x)
-		onTrees: representation.
-	^ self class trees: trees
+
+	representation := self
+		                  pushTree: 0 -> (BinomialTree leaf: x)
+		                  onTrees: representation
 ]
 
 { #category : #adding }
