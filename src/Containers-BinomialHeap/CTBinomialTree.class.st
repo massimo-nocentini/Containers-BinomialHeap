@@ -1,5 +1,5 @@
 Class {
-	#name : #BinomialTree,
+	#name : #CTBinomialTree,
 	#superclass : #Object,
 	#instVars : [
 		'content',
@@ -9,12 +9,12 @@ Class {
 }
 
 { #category : #creating }
-BinomialTree class >> leaf: anObject [
+CTBinomialTree class >> leaf: anObject [
 	^ self node: anObject children: nil
 ]
 
 { #category : #creating }
-BinomialTree class >> node: anObject children: children [
+CTBinomialTree class >> node: anObject children: children [
 	^ self new
 		content: anObject;
 		children: children;
@@ -22,27 +22,27 @@ BinomialTree class >> node: anObject children: children [
 ]
 
 { #category : #accessing }
-BinomialTree >> children [
+CTBinomialTree >> children [
 	^ children
 ]
 
 { #category : #accessing }
-BinomialTree >> children: anObject [
+CTBinomialTree >> children: anObject [
 	children := anObject
 ]
 
 { #category : #accessing }
-BinomialTree >> content [
+CTBinomialTree >> content [
 	^ content
 ]
 
 { #category : #accessing }
-BinomialTree >> content: anObject [
+CTBinomialTree >> content: anObject [
 	content := anObject
 ]
 
 { #category : #'as yet unclassified' }
-BinomialTree >> linkBinomialTree: aTree [
+CTBinomialTree >> linkBinomialTree: aTree [
 	| x |
 	x := aTree content.
 	^ content < x

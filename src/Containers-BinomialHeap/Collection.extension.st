@@ -3,5 +3,5 @@ Extension { #name : #Collection }
 { #category : #'*Containers-BinomialHeap' }
 Collection >> asBinomialHeap [
 
-	^ self asBinaryTree: BinomialHeap
+	^ self asBinaryTree: CTBinomialHeap
 ]

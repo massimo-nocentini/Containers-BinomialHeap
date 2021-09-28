@@ -1,5 +1,5 @@
 Class {
-	#name : #BinomialHeap,
+	#name : #CTBinomialHeap,
 	#superclass : #Object,
 	#instVars : [
 		'representation'
@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #requirements }
-BinomialHeap class >> empty [
+CTBinomialHeap class >> empty [
 
 	^ self new
 		  representation: nil;
@@ -16,17 +16,17 @@ BinomialHeap class >> empty [
 ]
 
 { #category : #adding }
-BinomialHeap >> ifEmpty: eBlock ifNotEmpty: neBlock [
+CTBinomialHeap >> ifEmpty: eBlock ifNotEmpty: neBlock [
 	^ representation ifNil: eBlock ifNotNil: neBlock
 ]
 
 { #category : #'as yet unclassified' }
-BinomialHeap >> isEmpty [
+CTBinomialHeap >> isEmpty [
 	^ self ifEmpty: [ true ] ifNotEmpty: [ false ]
 ]
 
 { #category : #adding }
-BinomialHeap >> merge: trees with: otherTrees [
+CTBinomialHeap >> merge: trees with: otherTrees [
 	^ trees
 		ifNil: [ otherTrees ]
 		ifNotNil: [ otherTrees
@@ -61,14 +61,14 @@ BinomialHeap >> merge: trees with: otherTrees [
 ]
 
 { #category : #adding }
-BinomialHeap >> min [
+CTBinomialHeap >> min [
 	^ self
 		ifEmpty: [ CollectionIsEmpty signal ]
 		ifNotEmpty: [ :trees | (self min: trees) first value content ]
 ]
 
 { #category : #adding }
-BinomialHeap >> min: trees [
+CTBinomialHeap >> min: trees [
 	| tree |
 	tree := trees value.
 	^ trees nextLink
@@ -83,7 +83,7 @@ BinomialHeap >> min: trees [
 ]
 
 { #category : #adding }
-BinomialHeap >> pop [
+CTBinomialHeap >> pop [
 
 	^ self ifEmpty: [ CollectionIsEmpty signal ] ifNotEmpty: [ :trees | 
 		  | tuple tree min |
@@ -100,15 +100,15 @@ BinomialHeap >> pop [
 ]
 
 { #category : #adding }
-BinomialHeap >> push: x [
+CTBinomialHeap >> push: x [
 
 	representation := self
-		                  pushTree: 0 -> (BinomialTree leaf: x)
+		                  pushTree: 0 -> (CTBinomialTree leaf: x)
 		                  onTrees: representation
 ]
 
 { #category : #adding }
-BinomialHeap >> pushTree: anAssociation onTrees: trees [
+CTBinomialHeap >> pushTree: anAssociation onTrees: trees [
 	^ trees
 		ifNil: [ anAssociation ~~> trees ]
 		ifNotNil: [ | carAssociation rank |
@@ -124,6 +124,6 @@ BinomialHeap >> pushTree: anAssociation onTrees: trees [
 ]
 
 { #category : #accessing }
-BinomialHeap >> representation: anObject [
+CTBinomialHeap >> representation: anObject [
 	representation := anObject
 ]

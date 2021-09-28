@@ -1,18 +1,18 @@
-Extension { #name : #BinomialHeap }
+Extension { #name : #CTBinomialHeap }
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialHeap >> associations [
+CTBinomialHeap >> associations [
 	^ self associations: representation
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialHeap >> associations: aValueLink [
+CTBinomialHeap >> associations: aValueLink [
 	^ aValueLink
 		ifNotNil: [ aValueLink value ~~> (self associations: aValueLink nextLink) ]
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialHeap >> gtInspectorTreesInCanvas: aCanvas [
+CTBinomialHeap >> gtInspectorTreesInCanvas: aCanvas [
 	| shapes |
 	shapes := representation asLinkedList collect: [ :anAssociation | 
 		          | c |
@@ -33,7 +33,7 @@ BinomialHeap >> gtInspectorTreesInCanvas: aCanvas [
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialHeap >> gtInspectorTreesViewIn: composite [
+CTBinomialHeap >> gtInspectorTreesViewIn: composite [
 	<gtInspectorPresentationOrder: 20>
 	^ composite roassal3
 		  title: 'Trees';

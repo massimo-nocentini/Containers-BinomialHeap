@@ -1,19 +1,19 @@
-Extension { #name : #BinomialTree }
+Extension { #name : #CTBinomialTree }
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> edges [
+CTBinomialTree >> edges [
 	^ self edges: content -> content ~~> nil
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> edges: incomingEdges [
+CTBinomialTree >> edges: incomingEdges [
 	^ children asLinkedList
 		foldr: [ :each :acc | each edges: content -> each content ~~> acc ]
 		init: incomingEdges
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> gtInspectorRecursiveSlotsInCanvas: aCanvas knownReferencesSet: aSet [
+CTBinomialTree >> gtInspectorRecursiveSlotsInCanvas: aCanvas knownReferencesSet: aSet [
 	| aGroup |
 	aGroup := RSGroup new.
 	self asRecursiveSlotsInGroup: aGroup knownReferencesSet: aSet.
@@ -24,7 +24,7 @@ BinomialTree >> gtInspectorRecursiveSlotsInCanvas: aCanvas knownReferencesSet: a
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> gtInspectorRecursiveSlotsViewIn: composite [
+CTBinomialTree >> gtInspectorRecursiveSlotsViewIn: composite [
 	<gtInspectorPresentationOrder: 20>
 	^ composite roassal3
 		  title: 'Recursive slots';
@@ -38,7 +38,7 @@ BinomialTree >> gtInspectorRecursiveSlotsViewIn: composite [
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> gtInspectorTreeViewIn: composite [
+CTBinomialTree >> gtInspectorTreeViewIn: composite [
 	<gtInspectorPresentationOrder: 20>
 	^ composite roassal3
 		  title: 'Tree';
@@ -47,7 +47,7 @@ BinomialTree >> gtInspectorTreeViewIn: composite [
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> gtInspectorTreeViewUsingCanvas: aCanvas [
+CTBinomialTree >> gtInspectorTreeViewUsingCanvas: aCanvas [
 	^ self edges asLinkedList asTree
 		  gtInspectorGraphViewIn: aCanvas
 		  vertexBlock: [ :aVertex | 
@@ -58,7 +58,7 @@ BinomialTree >> gtInspectorTreeViewUsingCanvas: aCanvas [
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> instVarsNamesOrderedCollection [
+CTBinomialTree >> instVarsNamesOrderedCollection [
 	"We choose the following order in which the `value` slot is 
 	the rightmost because that allows us to compose better shapes 
 	pointed by its reference."
@@ -69,7 +69,7 @@ BinomialTree >> instVarsNamesOrderedCollection [
 ]
 
 { #category : #'*Containers-BinomialHeap-Visualizations' }
-BinomialTree >> nodes [
+CTBinomialTree >> nodes [
 	| subtreeChildren |
 	subtreeChildren := children asLinkedList flatCollect: [ 
 		                   :aBinomialTree | aBinomialTree nodes ].

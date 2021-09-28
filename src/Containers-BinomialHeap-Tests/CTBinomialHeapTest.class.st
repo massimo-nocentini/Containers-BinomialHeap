@@ -2,13 +2,13 @@
 A BinomialHeapTest is a test class for testing the behavior of BinomialHeap
 "
 Class {
-	#name : #BinomialHeapTest,
+	#name : #CTBinomialHeapTest,
 	#superclass : #CTBinaryTreeAbstractTest,
 	#category : #'Containers-BinomialHeap-Tests'
 }
 
 { #category : #tests }
-BinomialHeapTest >> tree: aCollection [
+CTBinomialHeapTest >> tree: aCollection [
 
 	^ aCollection asBinomialHeap
 ]
