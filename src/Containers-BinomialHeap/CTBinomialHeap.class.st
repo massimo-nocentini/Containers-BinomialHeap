@@ -15,6 +15,24 @@ CTBinomialHeap class >> empty [
 		  yourself
 ]
 
+{ #category : #'instance creation' }
+CTBinomialHeap class >> withArrayedCollection: aCollection [
+
+	^ aCollection ifEmpty: [ self empty ] ifNotEmpty: [ 
+		  self new yourself: [ :tree | 
+			  tree representation: (aCollection
+					   bisect: [ :l :r | tree merge: l with: r ]
+					   baseBlock: [ :each | 0 -> (CTBinomialTree leaf: each) ~~> nil ]) ] ]
+]
+
+{ #category : #'instance creation' }
+CTBinomialHeap class >> withCollection: aCollection [
+
+	^ aCollection
+		  inject: self empty
+		  into: [ :aBinaryTree :each | aBinaryTree push: each ]
+]
+
 { #category : #adding }
 CTBinomialHeap >> ifEmpty: eBlock ifNotEmpty: neBlock [
 	^ representation ifNil: eBlock ifNotNil: neBlock
