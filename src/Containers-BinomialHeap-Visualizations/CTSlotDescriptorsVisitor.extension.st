@@ -7,6 +7,6 @@ CTSlotDescriptorsVisitor >> visitCTBinomialHeap: aHeap [
 	  ,
 	  (aHeap ifEmpty: [ {  } ] ifNotEmpty: [ { #min asSlotDescriptor } ])
 	  , { (#asShapeForest asSlotDescriptor
-			   inline: true;
+			   inline;
 			   quote) }
 ]
