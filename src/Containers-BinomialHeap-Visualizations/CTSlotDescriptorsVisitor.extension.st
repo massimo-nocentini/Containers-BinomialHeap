@@ -4,12 +4,12 @@ Extension { #name : #CTSlotDescriptorsVisitor }
 CTSlotDescriptorsVisitor >> visitCTBinomialHeap: aHeap [
 
 	^ (self visitObject: aHeap) , { 
-		  (self newSlotDescriptor
+		  (self newSlotDescriptorSelector
 			   selector: #min;
 			   enablePredicate: [ aHeap isEmpty not ];
 			   yourself).
 
-		  (self newSlotDescriptor
+		  (self newSlotDescriptorSelector
 			   selector: #asShapeForest;
 			   inline;
 			   quote) }
