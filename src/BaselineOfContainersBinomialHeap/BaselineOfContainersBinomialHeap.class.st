@@ -11,12 +11,18 @@ BaselineOfContainersBinomialHeap >> baseline: spec [
 	spec for: #common do: [ "Externals."
 		spec
 			baseline: 'ContainersEssentials'
-			with: [ 
-			spec repository: 'github://massimo-nocentini/Containers-Essentials' ].
+			with: [ spec repository: 'github://massimo-nocentini/Containers-Essentials:master' ].
+
+		spec
+			baseline: 'ContainersBinaryTreeAbstract'
+			with: [ spec repository: 'github://massimo-nocentini/Containers-BinaryTreeAbstract:master/src' ].
 
 		"Packages"
 		spec
-			package: 'Containers-BinomialHeap';
-			package: 'Containers-BinomialHeap-Visualizations';
-			package: 'Containers-BinomialHeap-Tests' ]
+			package: 'Containers-BinomialHeap'
+			with: [ spec requires: #( 'ContainersEssentials' ) ];
+			package: 'Containers-BinomialHeap-Visualizations'
+			with: [ spec requires: #( 'Containers-BinomialHeap' ) ];
+			package: 'Containers-BinomialHeap-Tests'
+			with: [ spec requires: #( 'Containers-BinomialHeap' 'ContainersBinaryTreeAbstract' ) ] ]
 ]
