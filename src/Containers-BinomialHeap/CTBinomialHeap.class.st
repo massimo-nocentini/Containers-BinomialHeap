@@ -5,7 +5,8 @@ I am a binomial heap: a priority queue that answers its least element first, mad
 | heap |
 heap := #( 5 3 8 1 ) asOrderedCollection asBinomialHeap.
 heap push: 2.
-{ heap min. heap pop. heap pop. heap pop. heap isEmpty } ""#(1 1 2 3 false)""
+{ heap min. heap pop. heap pop. heap pop. heap isEmpty }
+	""#(1 1 2 3 false)""
 ```
 
 `min` answers the least element and `pop` removes it too; both signal `CollectionIsEmpty` when I am empty.

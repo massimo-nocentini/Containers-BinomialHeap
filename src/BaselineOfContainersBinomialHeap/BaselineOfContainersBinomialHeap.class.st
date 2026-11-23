@@ -2,10 +2,15 @@
 I am the baseline of `Containers-BinomialHeap`: I load the packages `Containers-BinomialHeap`, `Containers-BinomialHeap-Visualizations` and `Containers-BinomialHeap-Tests`, and the projects `Containers-Essentials` and `Containers-BinaryTreeAbstract` that they require.
 
 ```smalltalk
-Metacello new
+[ Metacello new
 	baseline: 'ContainersBinomialHeap';
-	repository: 'github://massimo-nocentini/Containers-BinomialHeap:master/src';
-	load
+	githubUser: 'massimo-nocentini'
+		project: 'Containers-BinomialHeap'
+		commitish: 'master'
+		path: 'src';
+	load ]
+		on: MCMergeOrLoadWarning
+		do: [ :warning | warning load ]
 ```
 "
 Class {

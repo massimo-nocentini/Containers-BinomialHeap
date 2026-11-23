@@ -4,7 +4,8 @@ I am a tree of a `CTBinomialHeap`: a `content` and my `children`, which is the f
 `linkBinomialTree:` answers a new tree out of me and another one: the greater of the two contents becomes the root of the first child of the other. When they are equal, the argument is the root.
 
 ```smalltalk
-((CTBinomialTree leaf: 3) linkBinomialTree: (CTBinomialTree leaf: 1)) content ""1""
+((CTBinomialTree leaf: 3) linkBinomialTree:
+	(CTBinomialTree leaf: 1)) content ""1""
 ```
 "
 Class {
