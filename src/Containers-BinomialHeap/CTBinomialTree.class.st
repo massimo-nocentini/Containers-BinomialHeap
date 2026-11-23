@@ -1,3 +1,12 @@
+"
+I am a tree of a `CTBinomialHeap`: a `content` and my `children`, which is the first of a chain of links to other trees, or nil when I am a leaf. I do not know my rank, the heap keeps it.
+
+`linkBinomialTree:` answers a new tree out of me and another one: the greater of the two contents becomes the root of the first child of the other. When they are equal, the argument is the root.
+
+```smalltalk
+((CTBinomialTree leaf: 3) linkBinomialTree: (CTBinomialTree leaf: 1)) content ""1""
+```
+"
 Class {
 	#name : #CTBinomialTree,
 	#superclass : #Object,

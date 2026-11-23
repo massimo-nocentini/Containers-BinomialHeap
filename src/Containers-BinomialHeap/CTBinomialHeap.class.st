@@ -1,3 +1,17 @@
+"
+I am a binomial heap: a priority queue that answers its least element first, made of a list of `CTBinomialTree`s. The elements are compared with `<` and `<=`.
+
+```smalltalk
+| heap |
+heap := #( 5 3 8 1 ) asOrderedCollection asBinomialHeap.
+heap push: 2.
+{ heap min. heap pop. heap pop. heap pop. heap isEmpty } ""#(1 1 2 3 false)""
+```
+
+`min` answers the least element and `pop` removes it too; both signal `CollectionIsEmpty` when I am empty.
+
+My instance variable `representation` is nil when I am empty, and otherwise the first of a chain of links. Each link holds an association from a rank to the tree of that rank, in increasing order of rank. `merge:with:` merges two such chains: two trees of the same rank are linked into one of the next rank, which `pushTree:onTrees:` inserts in the chain.
+"
 Class {
 	#name : #CTBinomialHeap,
 	#superclass : #Object,
