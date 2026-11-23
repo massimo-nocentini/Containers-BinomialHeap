@@ -1,5 +1,5 @@
 "
-A BinomialHeapTest is a test class for testing the behavior of BinomialHeap
+A `BinomialHeapTest` is a test class for testing the behavior of `BinomialHeap`
 "
 Class {
 	#name : #CTBinomialHeapTest,
